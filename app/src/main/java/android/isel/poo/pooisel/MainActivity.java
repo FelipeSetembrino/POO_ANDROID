@@ -42,14 +42,13 @@ public class MainActivity extends AppCompatActivity {
         RadioButton radio_button = new RadioButton(this);
 
 
-
         //Adicionando os botões no Control:
         control.addView(button1);
         control.addView(button2);
         control.addView(button3);
 
         //Adicionando botões radio no radio_layout
-        radio_layout.addView(radio_layout);
+        radio_layout.addView(radio_button);
 
         //Adicionando Control no Global:
         global.addView(control);
