@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         button3.setTextSize(TX_BUTTON_SIZE);
         //Radio Button
         RadioButton radio_button = new RadioButton(this);
+        radio_button.setText("Radio Button 1");
+        radio_button.setTextSize(TX_BUTTON_SIZE);
 
 
         //Adicionando os botões no Control:
