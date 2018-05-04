@@ -42,6 +42,23 @@ public class MainActivity extends AppCompatActivity {
         RadioButton radio_button = new RadioButton(this);
         radio_button.setText("Radio Button 1");
         radio_button.setTextSize(TX_BUTTON_SIZE);
+            //Exemplo Radio Button
+            /*
+            private void createRadioButton() {
+            final RadioButton[] rb = new RadioButton[5];
+            RadioGroup rg = new RadioGroup(this); //create the RadioGroup
+            rg.setOrientation(RadioGroup.HORIZONTAL);//or RadioGroup.VERTICAL
+            for(int i=0; i<5; i++){
+               rb[i]  = new RadioButton(this);          
+               rb[i].setText(" " + ContactsActivity.phonetype.get(i)
+                    + "    " + ContactsActivity.phone.get(i));
+               rb[i].setId(i + 100);
+               rg.addView(rb[i]);
+            }
+            ll.addView(rg);//you add the whole RadioGroup to the layout
+
+            }
+            */
 
 
         //Adicionando os botões no Control:
