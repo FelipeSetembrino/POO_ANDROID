@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,27 +40,24 @@ public class MainActivity extends AppCompatActivity {
         button3.setText("Button 3");
         button3.setTextSize(TX_BUTTON_SIZE);
         //Radio Button
-        RadioButton radio_button = new RadioButton(this);
-        radio_button.setText("Radio Button 1");
-        radio_button.setTextSize(TX_BUTTON_SIZE);
-            //Exemplo Radio Button
-            /*
-            private void createRadioButton() {
-            final RadioButton[] rb = new RadioButton[5];
-            RadioGroup rg = new RadioGroup(this); //create the RadioGroup
-            rg.setOrientation(RadioGroup.HORIZONTAL);//or RadioGroup.VERTICAL
-            for(int i=0; i<5; i++){
-               rb[i]  = new RadioButton(this);          
-               rb[i].setText(" " + ContactsActivity.phonetype.get(i)
-                    + "    " + ContactsActivity.phone.get(i));
-               rb[i].setId(i + 100);
-               rg.addView(rb[i]);
-            }
-            ll.addView(rg);//you add the whole RadioGroup to the layout
+        RadioButton[] radio_button = new RadioButton[3];
+        RadioGroup radio_group = new RadioGroup(this);
+        radio_group.setOrientation(LinearLayout.HORIZONTAL);
 
-            }
-            */
+        radio_button[0]  = new RadioButton(this);
+        radio_button[0].setText("Radio Button 1");
+        radio_button[0].setTextSize(TX_BUTTON_SIZE);
+        radio_group.addView(radio_button[0]);
 
+        radio_button[1]  = new RadioButton(this);
+        radio_button[1].setText("Radio Button 2");
+        radio_button[1].setTextSize(TX_BUTTON_SIZE);
+        radio_group.addView(radio_button[1]);
+
+        radio_button[2]  = new RadioButton(this);
+        radio_button[2].setText("Radio Button 3");
+        radio_button[2].setTextSize(TX_BUTTON_SIZE);
+        radio_group.addView(radio_button[2]);
 
         //Adicionando os botões no Control:
         control.addView(button1);
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         control.addView(button3);
 
         //Adicionando botões radio no radio_layout
-        radio_layout.addView(radio_button);
+        radio_layout.addView(radio_group);
 
         //Adicionando Control no Global:
         global.addView(control);
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Iniciando tela:
         setContentView(global);
-
 
     }
 }
