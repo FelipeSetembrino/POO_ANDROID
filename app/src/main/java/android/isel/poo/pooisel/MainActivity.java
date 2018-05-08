@@ -2,10 +2,13 @@ package android.isel.poo.pooisel;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,11 +24,13 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout global = new LinearLayout(this);
         LinearLayout control = new LinearLayout(this);
         LinearLayout radio_layout = new LinearLayout(this);
+        LinearLayout drawing_layout = new LinearLayout(this);
 
         //Iniciando a orientação das View
         global.setOrientation(LinearLayout.VERTICAL);
         control.setOrientation(LinearLayout.HORIZONTAL);
         radio_layout.setOrientation(LinearLayout.HORIZONTAL);
+        drawing_layout.setOrientation(LinearLayout.HORIZONTAL);
 
         //Crinado os butões:
         //Botão 1
@@ -76,9 +81,35 @@ public class MainActivity extends AppCompatActivity {
         //Adicionando Control no Global:
         global.addView(control);
         global.addView(radio_layout);
+        global.addView(drawing_layout);
 
         //Iniciando tela:
         setContentView(global);
+
+        //Selecionando desenho no RadioButton
+        radio_button[0].setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e("Line", "Line clicked");
+            }
+        });
+
+        radio_button[1].setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e("Rect", "Rect clicked");
+            }
+        });
+
+        radio_button[2].setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e("Pixel", "Pixel clicked");
+            }
+        });
+
+        radio_button[3].setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Log.e("Circle", "Circle clicked");
+            }
+        });
 
     }
 }
