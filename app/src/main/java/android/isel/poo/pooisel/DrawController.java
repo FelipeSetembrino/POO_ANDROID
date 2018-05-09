@@ -1,20 +1,26 @@
 package android.isel.poo.pooisel;
 
+import android.isel.poo.pooisel.modelo.model;
+import android.isel.poo.pooisel.view.DrawView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class DrawController extends AppCompatActivity {
 
     //Adição view da tela:
     private int TX_BUTTON_SIZE = 20;
     private int TX_RADIO_SIZE = 20;
+    private int figure_selected;
+
+    model model = new model();
+
+    //Toast t = Toast.makeText(this, "line", Toast.LENGTH_LONG); Objeto de mensagens no ecrã do phone
+    //t.show();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +30,11 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout global = new LinearLayout(this);
         LinearLayout control = new LinearLayout(this);
         LinearLayout radio_layout = new LinearLayout(this);
-        LinearLayout drawing_layout = new LinearLayout(this);
 
         //Iniciando a orientação das View
         global.setOrientation(LinearLayout.VERTICAL);
         control.setOrientation(LinearLayout.HORIZONTAL);
         radio_layout.setOrientation(LinearLayout.HORIZONTAL);
-        drawing_layout.setOrientation(LinearLayout.HORIZONTAL);
 
         //Crinado os butões:
         //Botão 1
@@ -78,36 +82,54 @@ public class MainActivity extends AppCompatActivity {
         //Adicionando botões radio no radio_layout
         radio_layout.addView(radio_group);
 
+        //Adiciona a área de desenho do drawinglayout
+        final DrawView draw_layout = new DrawView(this);
+
+
         //Adicionando Control no Global:
         global.addView(control);
         global.addView(radio_layout);
-        global.addView(drawing_layout);
+        global.addView(draw_layout);
 
         //Iniciando tela:
         setContentView(global);
 
         //Selecionando desenho no RadioButton
+        //Line
+        final DrawController controle = new DrawController();
         radio_button[0].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Log.e("Line", "Line clicked");
+                model.addFigureSelected(0);
+                figure_selected = 0;
             }
         });
-
+        //Rect
         radio_button[1].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Log.e("Rect", "Rect clicked");
+                model.addFigureSelected(1);
+                figure_selected = 1;
             }
         });
-
+        //Pixel
         radio_button[2].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Log.e("Pixel", "Pixel clicked");
+                model.addFigureSelected(2);
+                figure_selected = 2;
+            }
+        });
+        //Circle
+        radio_button[3].setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                model.addFigureSelected(3);
+                figure_selected = 3;
             }
         });
 
-        radio_button[3].setOnClickListener(new View.OnClickListener() {
+        //Executar ação quando draw_layout tocada
+        draw_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                Log.e("Circle", "Circle clicked");
+                draw_layout.drawFigure(figure_selected);
             }
         });
 
