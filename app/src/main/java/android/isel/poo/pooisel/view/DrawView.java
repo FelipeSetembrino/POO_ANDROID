@@ -30,19 +30,5 @@ public class DrawView extends View {
         );
     }
 
-    public void drawFigure(int figure_selected, float x, float y){
-        Log.i("figura", ""+figure_selected);
-        Log.i("x", ""+x);
-        Log.i("y", ""+y);
-        switch (figure_selected){
-            case 0: break;
-            case 1: break;
-            case 2: break;
-            case 3: break;
-        }
-    }
-
-    public void reloadModel (){
-    }
 
 }

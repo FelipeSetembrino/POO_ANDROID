@@ -16,7 +16,7 @@ public class DrawController extends AppCompatActivity {
     //Adição view da tela:
     private int TX_BUTTON_SIZE = 20;
     private int TX_RADIO_SIZE = 20;
-    private int figure_selected;
+    private String figure_selected;
 
     model model = new model();
 
@@ -101,28 +101,28 @@ public class DrawController extends AppCompatActivity {
         radio_button[0].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 model.addFigureSelected(0);
-                figure_selected = 0;
+                figure_selected = "L";
             }
         });
         //Rect
         radio_button[1].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 model.addFigureSelected(1);
-                figure_selected = 1;
+                figure_selected = "R";
             }
         });
         //Pixel
         radio_button[2].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 model.addFigureSelected(2);
-                figure_selected = 2;
+                figure_selected = "P";
             }
         });
         //Circle
         radio_button[3].setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 model.addFigureSelected(3);
-                figure_selected = 3;
+                figure_selected = "C";
             }
         });
 
@@ -133,7 +133,13 @@ public class DrawController extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                draw_layout.drawFigure(figure_selected, x, y);
+                switch (figure_selected){
+                    case "L": break;
+                    case "R": break;
+                    case "P": break;
+                    case "C": break;
+                }
+                //draw_layout.drawFigure(figure_selected, x, y);
                 return false;
             }
         });
