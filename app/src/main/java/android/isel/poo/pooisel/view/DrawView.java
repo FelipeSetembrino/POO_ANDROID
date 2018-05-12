@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 
@@ -29,7 +30,10 @@ public class DrawView extends View {
         );
     }
 
-    public void drawFigure(int figure_selected){
+    public void drawFigure(int figure_selected, float x, float y){
+        Log.i("figura", ""+figure_selected);
+        Log.i("x", ""+x);
+        Log.i("y", ""+y);
         switch (figure_selected){
             case 0: break;
             case 1: break;
